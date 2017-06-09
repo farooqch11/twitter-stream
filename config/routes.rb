@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  get 'twitter_status/index'
+  Rails.application.routes.draw do
+    root 'twitter_status#index'
+  end
 
   get 'twitter_status/getstatus'
 

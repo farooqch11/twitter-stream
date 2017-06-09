@@ -1,12 +1,14 @@
 class TwitterStatusController < ApplicationController
   def index
     statuses = TwitterStatus.new
-    statuses.getStream
+    if TwitterStatus.getTweetWords.present?
+      @words = TwitterStatus.getTweetWords
+    else
+      @words = statuses.getStream
+    end
 
-  end
-
-  def getstatus
-
+    freq = @words.inject(Hash.new(0)) { |h,v| h[v] += 1; h }
+    @frequent = @words.sort_by{ |v| freq[v] }
   end
 
 end

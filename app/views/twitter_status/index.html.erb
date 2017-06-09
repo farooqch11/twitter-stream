@@ -1,2 +1,11 @@
-<h1>TwitterStatus#index</h1>
-<p>Find me in app/views/twitter_status/index.html.erb</p>
+<h1>10 Most Common words are</h1>
+<% @frequent.first(10).each do |frequency| %>
+    <li><%=frequency%></li>
+<%end %>
+
+<ul>
+<h1>Total Words are</h1>
+<% @words.each do |word| %>
+    <li><%=word%></li>
+<%end %>
+</ul>
